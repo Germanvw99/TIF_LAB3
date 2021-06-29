@@ -79,7 +79,7 @@ AS
 GO
 
 -- EDITAR MEDIOS DE PAGO
-CREATE PROCEDURE spEditarMedios_de_Pag(
+CREATE PROCEDURE spEditarMedios_de_Pago(
 @MDP_codigo INT,
 @MDP_nombre VARCHAR(50),
 @MDP_otros_detalles VARCHAR(100),
