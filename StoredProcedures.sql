@@ -1,7 +1,6 @@
 ﻿USE Lab3TIF
 GO
 
-
 --AGREGAR CLIENTES
 CREATE PROCEDURE spAgregarCliente
 @CLI_cuit INT,
@@ -10,12 +9,12 @@ CREATE PROCEDURE spAgregarCliente
 @CLI_username VARCHAR(50),
 @CLI_contrasenia VARCHAR(50)
 AS
-INSERT INTO Clientes(CLI_cuit,CLI_usu_id,CLI_dni,CLI_contrasenia)
+INSERT INTO Clientes(CLI_cuit,CLI_usu_id,CLI_dni,CLI_username,CLI_contrasenia)
 SELECT @CLI_cuit,@CLI_usu_id,@CLI_dni,@CLI_username,@CLI_contrasenia
 GO
 
 -- AGREGAR PERSONAL
-GO 
+	GO 
 CREATE PROCEDURE spAgregarPersonal
 @PER_usu_id INT,
 @PER_dni VARCHAR(25),
