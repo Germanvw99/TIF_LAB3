@@ -80,7 +80,7 @@ SELECT 'Dell','','Imagenes/marcas/Dell.png',2
 GO
 
 --ARTICULOS
-INSERT INTO Articulos (ART_marca_codigo,ART_categoria_codigo,ART_nombre,ART_descripcion,ART_punto_pedido,ART_precio_lista,ART_ruta_imagen,ART_codigo_estado) 
+INSERT INTO Articulos (ART_marca_cod,ART_categoria_cod,ART_nombre,ART_descripcion,ART_punto_pedido,ART_precio_lista,ART_ruta_imagen,ART_estado_cod) 
 SELECT 1,7,'Smart TV BGH','Dimensiones: 96.8cm de ancho,56.8cm de alto,7.8cm de profundidad',4,'41999.00','Imagenes/articulos/5.png',2 UNION
 SELECT 2,2,'Moto G9 Power','Con la pantalla Max Vision HD+ de 6.8"',12,'35999.00','Imagenes/articulos/10.png',2 UNION
 SELECT 3,7,'Smart TV Noblex','Su resolución es 4K',5,'81499.00','Imagenes/articulos/1.png',2 UNION
