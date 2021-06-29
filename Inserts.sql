@@ -1,7 +1,7 @@
 ﻿USE Lab3TIF
 GO
 
--- INSERTS PROVINCIAS
+-- PROVINCIAS
 BEGIN
 EXEC spAgregarProvincias 'Buenos Aires'
 EXEC spAgregarProvincias 'Capital Federal'
@@ -29,7 +29,7 @@ EXEC spAgregarProvincias 'Tierra del Fuego'
 EXEC spAgregarProvincias 'Tucumán'
 END
 
--- INSERTS ESTADOS
+-- ESTADOS
 BEGIN
 EXEC spAgregarEstados 'Baja'
 EXEC spAgregarEstados 'Alta'
@@ -41,13 +41,16 @@ EXEC spAgregarPerfiles 'Personal'
 EXEC spAgregarPerfiles 'Clientes'
 EXEC spAgregarPerfiles 'Proveedores'
 END
--- INSERTS MEDIOS DE PAGO
+
+-- MEDIOS DE PAGO
 BEGIN
 EXEC spAgregarMedios_de_Pago 'Efectivo','Método de pago en efectivo'
 EXEC spAgregarMedios_de_Pago 'Débito','Método de pago a través de tarjeta de débito'
 EXEC spAgregarMedios_de_Pago 'Crédito','Método de pago a través de tarjeta de crédito'
 END
 
+-- USUARIOS
+EXEC spAgregarUsuarios 2,'German','Vazquez','12345','email@mail.com','Direccion','Ciudad',1,'img.com'
 
 -- CATEGORIAS
 INSERT INTO Categorias (CAT_nombre,CAT_descripcion,CAT_ruta_imagen,CAT_estado_cod)

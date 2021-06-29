@@ -107,7 +107,6 @@ WHERE
 	PER_codigo= @PER_codigo
 GO
 
-
 -- AGREGAR MEDIOS DE PAGO
 CREATE PROCEDURE spAgregarMedios_de_Pago(
 @MDP_nombre VARCHAR(50),
@@ -166,6 +165,65 @@ WHERE
 	RECART_codigo=@RECART_codigo
 GO
 
+-- AGREGAR USUARIO
+CREATE PROCEDURE spAgregarUsuarios(
+@USU_perfil_cod INT,
+@USU_nombre VARCHAR(50),
+@USU_apellido VARCHAR(50),
+@USU_telefono VARCHAR(50),
+@USU_email VARCHAR(50),
+@USU_direccion VARCHAR(50),
+@USU_ciudad VARCHAR(50),
+@USU_provincia_cod INT,
+@USU_ruta_img VARCHAR(100)
+)
+AS 
+	INSERT INTO Usuarios(USU_perfil_cod,USU_nombre,USU_apellido,USU_telefono,USU_email,USU_direccion,USU_ciudad,USU_provincia_cod,USU_ruta_img,USU_estado_cod)
+	VALUES(@USU_perfil_cod,@USU_nombre,@USU_apellido,@USU_telefono,@USU_email,@USU_direccion,@USU_ciudad,@USU_provincia_cod,@USU_ruta_img,2)
+GO
+
+-- EDITAR USUARIO
+CREATE PROCEDURE spEditarUsuarios(
+@USU_id INT,
+@USU_perfil_cod INT,
+@USU_nombre VARCHAR(50),
+@USU_apellido VARCHAR(50),
+@USU_telefono VARCHAR(50),
+@USU_email VARCHAR(50),
+@USU_direccion VARCHAR(50),
+@USU_ciudad VARCHAR(50),
+@USU_provincia_cod INT,
+@USU_ruta_img VARCHAR(100),
+@USU_estado_cod INT
+)
+AS
+UPDATE USUARIOS
+	SET USU_perfil_cod=@USU_perfil_cod,
+	USU_nombre=@USU_nombre,
+	USU_apellido=@USU_apellido,
+	USU_telefono=@USU_telefono,
+	USU_email=@USU_email,
+	USU_direccion=@USU_direccion,
+	USU_ciudad=@USU_ciudad,
+	USU_provincia_cod=@USU_provincia_cod,
+	USU_ruta_img=@USU_ruta_img,
+	USU_estado_cod=@USU_estado_cod
+	WHERE USU_id=@USU_id
+GO
+
+-- BAJA USUARIO
+CREATE PROCEDURE spBajaUsuario
+(
+	@USU_id INT,
+	@USU_estado_cod INT
+)
+AS
+UPDATE USUARIOS
+SET
+	USU_estado_cod=@USU_estado_cod
+WHERE
+	USU_id=@USU_id
+GO
 
 -- AGREGAR MARCA
 CREATE PROCEDURE spAgregarMarca
