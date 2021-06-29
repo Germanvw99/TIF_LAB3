@@ -7,6 +7,7 @@ AS
 	VALUES(@PROV_nombre)
 GO
 
+-- EDITAR PROVINCIAS
 CREATE PROCEDURE spEditarProvincias(
 @PROV_nombre VARCHAR(50),
 @PROV_codigo INT
@@ -28,6 +29,7 @@ AS
 	VALUES(@EST_nombre)
 GO
 
+-- EDITAR ESTADOS
 CREATE PROCEDURE spEditarEstados(
 @EST_nombre VARCHAR(50),
 @EST_codigo INT
@@ -49,6 +51,20 @@ AS
 	VALUES(@PER_nombre)
 GO
 
+-- EDITAR PERFILES
+CREATE PROCEDURE spEditarPerfiles(
+@PER_nombre VARCHAR(50),
+@PER_codigo INT
+)
+AS
+UPDATE Perfiles
+SET
+	PER_nombre=@PER_nombre
+WHERE
+	PER_codigo= @PER_codigo
+GO
+
+
 -- AGREGAR MEDIOS DE PAGO
 CREATE PROCEDURE spAgregarMedios_de_Pago(
 @MDP_nombre VARCHAR(50),
@@ -58,6 +74,22 @@ AS
 	INSERT INTO Medios_de_Pago(MDP_nombre,MDP_otros_detalles,MDP_estado_cod)
 	VALUES(@MDP_nombre,@MDP_otros_detalles,2)
 GO
+
+-- EDITAR MEDIOS DE PAGO
+CREATE PROCEDURE spEditarMedios_de_Pag(
+@MDP_codigo INT,
+@MDP_nombre VARCHAR(50),
+@MDP_otros_detalles VARCHAR(100)
+)
+AS
+UPDATE Medios_de_Pago
+SET
+	MDP_nombre=@MDP_nombre,
+	MDP_otros_detalles=@MDP_otros_detalles
+WHERE
+	MDP_codigo= @MDP_codigo
+GO
+
 
 -- AGREGAR RECEPCION DE ARTICULO
 CREATE PROCEDURE spAgregarRecepcion_Articulos(
