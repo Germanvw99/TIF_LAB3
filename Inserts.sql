@@ -1,4 +1,7 @@
-﻿-- INSERTS PROVINCIAS
+﻿USE Lab3TIF
+GO
+
+-- INSERTS PROVINCIAS
 BEGIN
 EXEC spAgregarProvincias 'Buenos Aires'
 EXEC spAgregarProvincias 'Capital Federal'

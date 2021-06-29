@@ -1,1 +1,2 @@
-﻿
+﻿USE Lab3TIF
+GO

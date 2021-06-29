@@ -1,4 +1,7 @@
-﻿-- AGREGAR PROVINCIAS
+﻿USE Lab3TIF
+GO
+
+-- AGREGAR PROVINCIAS
 CREATE PROCEDURE spAgregarProvincias(
 @PROV_nombre VARCHAR(50)
 )
@@ -100,8 +103,27 @@ CREATE PROCEDURE spAgregarRecepcion_Articulos(
 @RECART_fecha SMALLDATETIME
 )
 AS 
-	INSERT INTO Recepcion_Articulos(RECART_per_cod,RECART_prov_cuit,RECART_fecha)
-	VALUES(@RECART_per_cod,@RECART_prov_cuit,@RECART_fecha)
+	INSERT INTO Recepcion_Articulos(RECART_per_cod,RECART_prov_cuit,RECART_fecha,RECART_estado_cod)
+	VALUES(@RECART_per_cod,@RECART_prov_cuit,@RECART_fecha,2)
+GO
+
+-- EDITAR RECEPCION DE ARTICULO
+CREATE PROCEDURE spEditarRecepcion_Articulos(
+@RECART_codigo INT,
+@RECART_per_cod INT,
+@RECART_prov_cuit INT,
+@RECART_fecha SMALLDATETIME,
+@RECART_estado_cod INT
+)
+AS 
+UPDATE Recepcion_Articulos
+SET
+	RECART_per_cod=@RECART_per_cod,
+	RECART_prov_cuit=@RECART_prov_cuit,
+	RECART_fecha=@RECART_fecha,
+	RECART_estado_cod=@RECART_estado_cod
+WHERE
+	RECART_codigo=@RECART_codigo
 GO
 
 
