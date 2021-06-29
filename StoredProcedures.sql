@@ -79,13 +79,15 @@ GO
 CREATE PROCEDURE spEditarMedios_de_Pag(
 @MDP_codigo INT,
 @MDP_nombre VARCHAR(50),
-@MDP_otros_detalles VARCHAR(100)
+@MDP_otros_detalles VARCHAR(100),
+@MDP_estado_cod INT
 )
 AS
 UPDATE Medios_de_Pago
 SET
 	MDP_nombre=@MDP_nombre,
-	MDP_otros_detalles=@MDP_otros_detalles
+	MDP_otros_detalles=@MDP_otros_detalles,
+	MDP_estado_cod=@MDP_estado_cod
 WHERE
 	MDP_codigo= @MDP_codigo
 GO

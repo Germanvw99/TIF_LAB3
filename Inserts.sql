@@ -34,9 +34,9 @@ END
 
 -- INSERTS PERFILES
 BEGIN 
-EXEC spAgregarPerfiles 'Proveedores'
-EXEC spAgregarPerfiles 'Clientes'
 EXEC spAgregarPerfiles 'Personal'
+EXEC spAgregarPerfiles 'Clientes'
+EXEC spAgregarPerfiles 'Proveedores'
 END
 -- INSERTS MEDIOS DE PAGO
 BEGIN
