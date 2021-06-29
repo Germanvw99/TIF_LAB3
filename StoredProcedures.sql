@@ -1,6 +1,46 @@
 ﻿USE Lab3TIF
 GO
 
+
+--AGREGAR CLIENTES
+CREATE PROCEDURE spAgregarCliente
+@CLI_cuit INT,
+@CLI_usu_id INT,
+@CLI_dni VARCHAR(25),
+@CLI_username VARCHAR(50),
+@CLI_contrasenia VARCHAR(50)
+AS
+INSERT INTO Clientes(CLI_cuit,CLI_usu_id,CLI_dni,CLI_contrasenia)
+SELECT @CLI_cuit,@CLI_usu_id,@CLI_dni,@CLI_username,@CLI_contrasenia
+GO
+
+-- AGREGAR PERSONAL
+GO 
+CREATE PROCEDURE spAgregarPersonal
+@PER_usu_id INT,
+@PER_dni VARCHAR(25),
+@PER_username VARCHAR(50),
+@PER_contrasenia VARCHAR(50)
+AS 
+INSERT INTO Personal(PER_usu_id,PER_dni,PER_username,PER_contrasenia)
+SELECT @PER_usu_id,@PER_dni,@PER_username,@PER_contrasenia
+GO
+
+--AGREGAR DETALLEVENTA
+
+CREATE PROCEDURE spAgregarDetalleFactura
+@DTV_venta_codigo INT,
+@DTV_prov_cuit INT,
+@DTV_articulo_cod INT,
+@DTV_cantidad_unidades INT,
+@DTV_precio_unitario DECIMAL(18,2)
+AS
+INSERT INTO DetalleVenta(DTV_venta_codigo,DTV_prov_cuit,DTV_articulo_cod,DTV_cantidad_unidades,DTV_precio_unitario)
+SELECT @DTV_venta_codigo,@DTV_prov_cuit,@DTV_articulo_cod,@DTV_cantidad_unidades,@DTV_precio_unitario
+GO
+
+
+
 -- AGREGAR PROVINCIAS
 CREATE PROCEDURE spAgregarProvincias(
 @PROV_nombre VARCHAR(50)
