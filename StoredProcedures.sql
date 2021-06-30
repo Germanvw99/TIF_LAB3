@@ -466,6 +466,115 @@ AS
 		)
 	END
 GO
+CREATE PROCEDURE spAgregarEstado
+(
+@codigoestado int ,
+@nombreestado varchar (25)
+)
+AS
+INSERT INTO Estados 
+(
+EST_codigo,
+EST_nombre
+)
+VALUES
+(
+@codigoestado,
+@nombreestado
+
+)
+GO
+
+CREATE PROCEDURE spAgregarProveedor
+
+(
+@cuit int,
+@usuarioid int,
+@razonsocial varchar (50),
+@nombredecontacto varchar (50)
+)
+AS
+INSERT INTO Proveedores
+(
+PROV_cuit,
+PROV_usu_id,
+PROV_razon_social,
+PROV_nombre_contacto
+)
+VALUES
+(
+@cuit,
+@usuarioid,
+@razonsocial,
+@nombredecontacto
+)
+GO
+
+CREATE PROCEDURE spAgregarVenta
+(
+@codigodeventa int,
+@cuitcliente int,
+@mediodepago int,
+@fecha smalldatetime,
+@fecharequerida smalldatetime,
+@fechadeenvio smalldatetime,
+@totalfactura decimal (18,2),
+@codigodeestado int
+
+)
+AS
+INSERT INTO Ventas
+(
+VEN_codigo,
+VEN_cli_cuit,
+VEN_medio_pago_cod,
+VEN_fecha,
+VEN_fecha_requerida,
+VEN_fecha_envio,
+VEN_total_facturado,
+VEN_codigo_estado
+)
+VALUES
+
+(
+@codigodeventa ,
+@cuitcliente ,
+@mediodepago ,
+@fecha ,
+@fecharequerida ,
+@fechadeenvio ,
+@totalfactura ,
+@codigodeestado 
+)
+GO
 
 
-
+CREATE PROCEDURE spAgregarDetalleRecepcionDeArticulos
+(
+@codigo int,
+@cuitdeproveedor int,
+@codigodearticulo int,
+@numerodelina int,
+@cantidaddeunidades int,
+@preciounitario decimal (18,2)
+)
+AS
+INSERT INTO DetalleRecepcion_Articulos
+(
+DRECART_codigo,
+DRECART_prov_cuit,
+DRECART_articulo_cod,
+DRECART_numero_linea,
+DRECART_cantidad_unidades,
+DRECART_precio_unitario
+)
+VALUES
+(
+@codigo ,
+@cuitdeproveedor ,
+@codigodearticulo ,
+@numerodelina ,
+@cantidaddeunidades ,
+@preciounitario 
+)
+GO
