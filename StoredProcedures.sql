@@ -464,6 +464,7 @@ AS
 		)
 	END
 GO
+
 CREATE PROCEDURE spAgregarEstado
 (
 @codigoestado int ,
@@ -515,7 +516,6 @@ CREATE PROCEDURE spAgregarVenta
 @fecha smalldatetime,
 @fecharequerida smalldatetime,
 @fechadeenvio smalldatetime,
-@totalfactura decimal (18,2),
 @codigodeestado int
 
 )
@@ -527,7 +527,6 @@ VEN_medio_pago_cod,
 VEN_fecha,
 VEN_fecha_requerida,
 VEN_fecha_envio,
-VEN_total_facturado,
 VEN_codigo_estado
 )
 VALUES
@@ -538,7 +537,6 @@ VALUES
 @fecha ,
 @fecharequerida ,
 @fechadeenvio ,
-@totalfactura ,
 @codigodeestado 
 )
 GO
