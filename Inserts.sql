@@ -52,6 +52,28 @@ END
 -- USUARIOS
 EXEC spAgregarUsuarios 2,'German','Vazquez','12345','email@mail.com','Direccion','Ciudad',1,'img.com'
 
+
+EXEC spAgregarUsuarios 1,'Antonio Jose','Salazar','011 3817-7518','neippuharonnoi-2953@yopmail.com','Moreno 3653','Lomas del Mirador',1,'img.com'
+EXEC spAgregarUsuarios 1,'Tania','Pellicer','011 6356-9715','fodettaummuja-9696@yopmail.com','Larrea 1325','Villa Del Parque',1,'img.com'
+
+EXEC spAgregarUsuarios 3,'Otilia','Prada','011 4641-1359','neippuharonnoi-2953@yopmail.com','Sanicolas  526','La Rioja',12,'img.com'
+EXEC spAgregarUsuarios 3,'Laura','Maria Cuellar','011 4922-4801','bruxoyaralau-4667@yopmail.com','General Pico','General Pico',11,'img.com'
+EXEC spAgregarUsuarios 3,'Gracia','Herrera','011 2107-5861','priboikosibro-4325@yopmail.com','Alsina 520','Morón',1,'img.com'
+
+--CLIENTES
+EXEC spAgregarCliente 123,1,'94758321',german,147
+
+--PERSONAL
+EXEC spAgregarPersonal 2,'14247851','Personal1','123' 
+EXEC spAgregarPersonal 3,'47852963','Personal2','321'
+
+--PROVEDORES
+
+EXEC spAgregarProveedor 27590848,4,'Samsonite','Roque Gaspar'
+EXEC spAgregarProveedor 27839721,5,'Amec','Manuel Clemente'
+EXEC spAgregarProveedor 24385038,6,'Lenovo','Arsenio Gonzalo'
+
+
 -- CATEGORIAS
 INSERT INTO Categorias (CAT_nombre,CAT_descripcion,CAT_ruta_imagen,CAT_estado_cod)
 SELECT 'Cámaras y Accesorios','Descubrí miles de productos','Imagenes/categorias/camaras-y-accesorios.png',2 UNION

@@ -27,17 +27,15 @@ GO
 
 --AGREGAR DETALLEVENTA
 
-CREATE PROCEDURE spAgregarDetalleFactura
+CREATE PROCEDURE spAgregarDetalleVenta
 @DTV_venta_codigo INT,
 @DTV_prov_cuit INT,
 @DTV_articulo_cod INT,
-@DTV_cantidad_unidades INT,
-@DTV_precio_unitario DECIMAL(18,2)
+@DTV_cantidad_unidades INT
 AS
-INSERT INTO DetalleVenta(DTV_venta_codigo,DTV_prov_cuit,DTV_articulo_cod,DTV_cantidad_unidades,DTV_precio_unitario)
-SELECT @DTV_venta_codigo,@DTV_prov_cuit,@DTV_articulo_cod,@DTV_cantidad_unidades,@DTV_precio_unitario
+INSERT INTO DetalleVenta(DTV_venta_codigo,DTV_prov_cuit,DTV_articulo_cod,DTV_cantidad_unidades)
+SELECT @DTV_venta_codigo,@DTV_prov_cuit,@DTV_articulo_cod,@DTV_cantidad_unidades
 GO
-
 
 
 -- AGREGAR PROVINCIAS
@@ -512,7 +510,6 @@ GO
 
 CREATE PROCEDURE spAgregarVenta
 (
-@codigodeventa int,
 @cuitcliente int,
 @mediodepago int,
 @fecha smalldatetime,
@@ -525,7 +522,6 @@ CREATE PROCEDURE spAgregarVenta
 AS
 INSERT INTO Ventas
 (
-VEN_codigo,
 VEN_cli_cuit,
 VEN_medio_pago_cod,
 VEN_fecha,
@@ -537,7 +533,6 @@ VEN_codigo_estado
 VALUES
 
 (
-@codigodeventa ,
 @cuitcliente ,
 @mediodepago ,
 @fecha ,
@@ -554,7 +549,6 @@ CREATE PROCEDURE spAgregarDetalleRecepcionDeArticulos
 @codigo int,
 @cuitdeproveedor int,
 @codigodearticulo int,
-@numerodelina int,
 @cantidaddeunidades int,
 @preciounitario decimal (18,2)
 )
@@ -564,7 +558,6 @@ INSERT INTO DetalleRecepcion_Articulos
 DRECART_codigo,
 DRECART_prov_cuit,
 DRECART_articulo_cod,
-DRECART_numero_linea,
 DRECART_cantidad_unidades,
 DRECART_precio_unitario
 )
@@ -573,7 +566,6 @@ VALUES
 @codigo ,
 @cuitdeproveedor ,
 @codigodearticulo ,
-@numerodelina ,
 @cantidaddeunidades ,
 @preciounitario 
 )
