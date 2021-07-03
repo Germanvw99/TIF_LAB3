@@ -133,7 +133,7 @@ CREATE TABLE Articulos(
 	CONSTRAINT PK_Articulos PRIMARY KEY (ART_codigo),
 	CONSTRAINT FK_Articulos_Marcas FOREIGN KEY (ART_marca_cod) REFERENCES Marcas(MAR_codigo),
 	CONSTRAINT FK_Articulos_Categorias FOREIGN KEY (ART_categoria_cod) REFERENCES Categorias(CAT_codigo),
-	CONSTRAINT FK_Articulos_Estado FOREIGN KEY (ART_estado_cod) REFERENCES Estados(EST_codigo)
+	CONSTRAINT FK_Articulos_Estado FOREIGN KEY (ART_estado_cod) REFERENCES Estados(EST_codigo) 
 )
 GO	
 
@@ -166,6 +166,7 @@ CREATE TABLE Ventas(
 	CONSTRAINT PK_Ventas PRIMARY KEY (VEN_codigo),
 	CONSTRAINT FK_Ventas_Clientes FOREIGN KEY (VEN_cli_cuit) REFERENCES Clientes(CLI_cuit),
 	CONSTRAINT FK_Ventas_Medios_de_Pago FOREIGN KEY (VEN_medio_pago_cod) REFERENCES Medios_de_Pago(MDP_codigo),
+	CONSTRAINT FK_Ventas_codigo_estado FOREIGN KEY (VEN_codigo_estado) REFERENCES Estados(EST_codigo)
 )
 GO
 
