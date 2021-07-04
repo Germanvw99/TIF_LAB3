@@ -48,3 +48,14 @@ AS
 
    END
 GO
+
+CREATE TRIGGER REESTABLECER_IDENTITY
+ON Recepcion_Articulos
+AFTER INSERT
+AS
+
+BEGIN
+
+DBCC CHECKIDENT ('DetalleRecepcion_Articulos', reseed,0);
+
+END

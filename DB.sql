@@ -206,7 +206,8 @@ CREATE TABLE DetalleRecepcion_Articulos(
 	DRECART_articulo_cod INT NOT NULL,
 	DRECART_cantidad_unidades INT NULL,
 	DRECART_precio_unitario DECIMAL(18,2) DEFAULT (0.00),
-	CONSTRAINT PK_DetalleRecepcion_Articulos PRIMARY KEY (DRECART_codigo, DRECART_articulo_cod),
+	DRECART_numero_de_linea INT IDENTITY (1,1),
+	CONSTRAINT PK_DetalleRecepcion_Articulos PRIMARY KEY (DRECART_codigo, DRECART_numero_de_linea),
 	CONSTRAINT FK_DetalleRecepcion_Articulos_Recepcion_Articulos FOREIGN KEY (DRECART_codigo) 
 		REFERENCES Recepcion_Articulos(RECART_codigo),
 	CONSTRAINT FK_DetalleRecepcion_Articulos_Articulos FOREIGN KEY (DRECART_articulo_cod) REFERENCES Articulos(ART_codigo)
