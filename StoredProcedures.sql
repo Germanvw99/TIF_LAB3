@@ -9,20 +9,31 @@ CREATE PROCEDURE spAgregarCliente
 @CLI_username VARCHAR(50),
 @CLI_contrasenia VARCHAR(50)
 AS
-INSERT INTO Clientes(CLI_cuit,CLI_usu_id,CLI_dni,CLI_username,CLI_contrasenia)
-SELECT @CLI_cuit,@CLI_usu_id,@CLI_dni,@CLI_username,@CLI_contrasenia
+DECLARE @perfil int
+SELECT @perfil=USU_perfil_cod FROM Usuarios WHERE USU_id=@CLI_usu_id
+IF @perfil=2
+	BEGIN
+		INSERT INTO Clientes(CLI_cuit,CLI_usu_id,CLI_dni,CLI_username,CLI_contrasenia)
+		SELECT @CLI_cuit,@CLI_usu_id,@CLI_dni,@CLI_username,@CLI_contrasenia
+	END
+ELSE PRINT 'Tipo de usuario incorrecto'
 GO
 
 -- AGREGAR PERSONAL
-	GO 
 CREATE PROCEDURE spAgregarPersonal
 @PER_usu_id INT,
 @PER_dni VARCHAR(25),
 @PER_username VARCHAR(50),
 @PER_contrasenia VARCHAR(50)
 AS 
-INSERT INTO Personal(PER_usu_id,PER_dni,PER_username,PER_contrasenia)
-SELECT @PER_usu_id,@PER_dni,@PER_username,@PER_contrasenia
+DECLARE @perfil int
+SELECT @perfil=USU_perfil_cod FROM Usuarios WHERE USU_id=@PER_usu_id
+IF @perfil=1
+	BEGIN
+		INSERT INTO Personal(PER_usu_id,PER_dni,PER_username,PER_contrasenia)
+		SELECT @PER_usu_id,@PER_dni,@PER_username,@PER_contrasenia
+	END
+ELSE PRINT 'Tipo de usuario incorrecto'
 GO
 
 --AGREGAR DETALLEVENTA
@@ -485,7 +496,6 @@ VALUES
 GO
 
 CREATE PROCEDURE spAgregarProveedor
-
 (
 @cuit int,
 @usuarioid int,
@@ -493,20 +503,14 @@ CREATE PROCEDURE spAgregarProveedor
 @nombredecontacto varchar (50)
 )
 AS
-INSERT INTO Proveedores
-(
-PROV_cuit,
-PROV_usu_id,
-PROV_razon_social,
-PROV_nombre_contacto
-)
-VALUES
-(
-@cuit,
-@usuarioid,
-@razonsocial,
-@nombredecontacto
-)
+DECLARE @perfil int
+SELECT @perfil=USU_perfil_cod FROM Usuarios WHERE USU_id=@usuarioid
+IF @perfil=3
+	BEGIN
+		INSERT INTO Proveedores(PROV_cuit,PROV_usu_id,PROV_razon_social,PROV_nombre_contacto)
+		VALUES(@cuit,@usuarioid,@razonsocial,@nombredecontacto)
+	END
+ELSE PRINT 'Tipo de usuario incorrecto'
 GO
 
 CREATE PROCEDURE spAgregarVenta
