@@ -35,7 +35,7 @@ EXEC spAgregarEstados 'Baja'
 EXEC spAgregarEstados 'Alta'
 END
 
--- INSERTS PERFILES
+-- PERFILES
 BEGIN 
 EXEC spAgregarPerfiles 'Personal'
 EXEC spAgregarPerfiles 'Clientes'
@@ -121,7 +121,7 @@ SELECT 'Corsair','','Imagenes/marcas/Corsair.png',2 UNION
 SELECT 'Dell','','Imagenes/marcas/Dell.png',2
 GO
 
---ARTICULOS
+-- ARTICULOS
 EXEC spAgregarArticulo 1,7,'Smart TV BGH','Dimensiones: 96.8cm de ancho,56.8cm de alto,7.8cm de profundidad',4,'41999.00','Imagenes/articulos/5.png',2
 EXEC spAgregarArticulo 2,2,'Moto G9 Power','Con la pantalla Max Vision HD+ de 6.8"',12,'35999.00','Imagenes/articulos/10.png',2
 EXEC spAgregarArticulo 3,7,'Smart TV Noblex','Su resolución es 4K',5,'81499.00','Imagenes/articulos/1.png',2
@@ -134,3 +134,43 @@ EXEC spAgregarArticulo 9,2,'Samsung Galaxy Note20','Pantalla Dynamic AMOLED 2X d
 EXEC spAgregarArticulo 10,7,'Smart TV Samsung','Tecnología HDR para una calidad de imagen mejorada.',3,'75999.00','Imagenes/articulos/2.png',2
 EXEC spAgregarArticulo 11,7,'Smart TV TCL','Con función Screen Share',6,'32999.00','Imagenes/articulos/4.png',2
 EXEC spAgregarArticulo 12,2,'Xiaomi Poco X3','Dispositivo liberado para que elijas la compañía telefónica que prefieras',3,'61200.00','Imagenes/articulos/8.png',2
+
+-- ARTICULOS_POR_PROVEEDOR
+EXEC spAgregarArt_Prov 1234444,1
+EXEC spAgregarArt_Prov 3121139,2
+EXEC spAgregarArt_Prov 3121234,3
+EXEC spAgregarArt_Prov 1234444,4
+EXEC spAgregarArt_Prov 3121139,5
+EXEC spAgregarArt_Prov 1234444,6
+EXEC spAgregarArt_Prov 3121234,7
+EXEC spAgregarArt_Prov 1234444,8
+EXEC spAgregarArt_Prov 3121139,9
+EXEC spAgregarArt_Prov 1234444,10
+EXEC spAgregarArt_Prov 3121139,11
+EXEC spAgregarArt_Prov 3121234,12
+
+-- RECEPCION ARTICULO
+EXEC spAgregarRecepcion_Articulos 1,1234444
+EXEC spAgregarRecepcion_Articulos 1,3121139
+EXEC spAgregarRecepcion_Articulos 2,3121234
+
+-- DETALLE RECEPCION ARTICULO
+EXEC spAgregarDetalleRecepcionDeArticulos 1,1234444,1,50,2000
+
+-- VENTAS
+EXEC spAgregarVenta 1234555,2,2
+EXEC spAgregarVenta 1234567,2,2
+EXEC spAgregarVenta 1234576,2,2
+
+-- DETALLE VENTA
+EXEC spAgregarDetalleVenta 1,1234444,4,10
+EXEC spAgregarDetalleVenta 1,1234444,2,5
+EXEC spAgregarDetalleVenta 1,1234444,1,2
+EXEC spAgregarDetalleVenta 1,1234444,3,2
+
+EXEC spAgregarDetalleVenta 2,3121139,6,9
+EXEC spAgregarDetalleVenta 2,3121139,9,2
+EXEC spAgregarDetalleVenta 2,3121139,1,3
+
+EXEC spAgregarDetalleVenta 3,3121234,5,2
+EXEC spAgregarDetalleVenta 3,3121234,7,4

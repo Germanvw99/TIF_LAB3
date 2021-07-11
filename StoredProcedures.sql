@@ -146,12 +146,11 @@ GO
 -- AGREGAR RECEPCION DE ARTICULO
 CREATE PROCEDURE spAgregarRecepcion_Articulos(
 @RECART_per_cod INT,
-@RECART_prov_cuit INT,
-@RECART_fecha SMALLDATETIME
+@RECART_prov_cuit INT
 )
 AS 
 	INSERT INTO Recepcion_Articulos(RECART_per_cod,RECART_prov_cuit,RECART_fecha,RECART_estado_cod)
-	VALUES(@RECART_per_cod,@RECART_prov_cuit,@RECART_fecha,2)
+	VALUES(@RECART_per_cod,@RECART_prov_cuit,getdate(),2)
 GO
 
 -- EDITAR RECEPCION DE ARTICULO
@@ -457,22 +456,8 @@ AS
 		END
 	ELSE
 	BEGIN
-		INSERT INTO Articulos_por_Proveedor
-		(
-		AXP_prov_cuit,
-		AXP_articulo_cod,
-		AXP_precio_unitario ,
-		AXP_stock_actual,
-		AXP_entrada
-		)
-		VALUES
-		(
-		@AXP_prov_cuit,
-		@AXP_articulo_cod,
-		@AXP_precio_unitario ,
-		@AXP_entrada,
-		@AXP_entrada
-		)
+		INSERT INTO Articulos_por_Proveedor(AXP_prov_cuit,AXP_articulo_cod,AXP_precio_unitario ,AXP_stock_actual,AXP_entrada)
+		VALUES(@AXP_prov_cuit,@AXP_articulo_cod,@AXP_precio_unitario ,@AXP_entrada,@AXP_entrada)
 	END
 GO
 
@@ -482,17 +467,8 @@ CREATE PROCEDURE spAgregarEstado
 @nombreestado varchar (25)
 )
 AS
-INSERT INTO Estados 
-(
-EST_codigo,
-EST_nombre
-)
-VALUES
-(
-@codigoestado,
-@nombreestado
-
-)
+	INSERT INTO Estados(EST_codigo,EST_nombre)
+	VALUES(@codigoestado,@nombreestado)
 GO
 
 CREATE PROCEDURE spAgregarProveedor
@@ -517,32 +493,13 @@ CREATE PROCEDURE spAgregarVenta
 (
 @cuitcliente int,
 @mediodepago int,
-@fecha smalldatetime,
-@fecharequerida smalldatetime,
-@fechadeenvio smalldatetime,
 @codigodeestado int
-
 )
 AS
-INSERT INTO Ventas
-(
-VEN_cli_cuit,
-VEN_medio_pago_cod,
-VEN_fecha,
-VEN_fecha_requerida,
-VEN_fecha_envio,
-VEN_codigo_estado
-)
-VALUES
-
-(
-@cuitcliente ,
-@mediodepago ,
-@fecha ,
-@fecharequerida ,
-@fechadeenvio ,
-@codigodeestado 
-)
+DECLARE @date smalldatetime
+SET @date=getdate()
+INSERT INTO Ventas(VEN_cli_cuit,VEN_medio_pago_cod,VEN_fecha,VEN_fecha_requerida,VEN_fecha_envio,VEN_codigo_estado)
+VALUES(@cuitcliente ,@mediodepago,@date,@date,null,@codigodeestado )
 GO
 
 
@@ -571,4 +528,14 @@ VALUES
 @cantidaddeunidades ,
 @preciounitario 
 )
+GO
+
+CREATE PROCEDURE spAgregarArt_Prov
+(
+@AXP_prov_cuit int,
+@AXP_articulo_cod int
+)
+AS
+INSERT INTO Articulos_por_Proveedor(AXP_prov_cuit,AXP_articulo_cod,AXP_stock_actual,AXP_stock_anterior,AXP_entrada,AXP_salida,AXP_precio_unitario)
+VALUES(@AXP_prov_cuit,@AXP_articulo_cod,0,0,0,0,0)
 GO
