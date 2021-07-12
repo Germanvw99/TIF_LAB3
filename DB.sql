@@ -149,7 +149,8 @@ CREATE TABLE Articulos_por_Proveedor(
 	AXP_precio_unitario DECIMAL(18,2) DEFAULT (0.00),
 	CONSTRAINT PK_Articulos_por_Proveedor PRIMARY KEY (AXP_codigo),
 	CONSTRAINT FK_Articulos_por_Proveedor_Articulos FOREIGN KEY (AXP_articulo_cod) REFERENCES Articulos(ART_codigo),
-	CONSTRAINT FK_Articulos_por_Proveedor_Proveedores FOREIGN KEY (AXP_prov_cuit) REFERENCES Proveedores(PROV_cuit)
+	CONSTRAINT FK_Articulos_por_Proveedor_Proveedores FOREIGN KEY (AXP_prov_cuit) REFERENCES Proveedores(PROV_cuit),
+	CONSTRAINT UQ_Articulos_por_Proveedor_AXP_articulo_cod UNIQUE (AXP_articulo_cod)
 )
 GO
 

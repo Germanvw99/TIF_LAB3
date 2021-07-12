@@ -53,7 +53,8 @@ AS
 
 BEGIN
 
-DBCC CHECKIDENT ('DetalleRecepcion_Articulos', reseed,0);
+DBCC CHECKIDENT ('DetalleRecepcion_Articulos', reseed,0);
+
 END
 GO
 
