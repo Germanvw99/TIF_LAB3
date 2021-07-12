@@ -155,7 +155,25 @@ EXEC spAgregarRecepcion_Articulos 1,3121139
 EXEC spAgregarRecepcion_Articulos 2,3121234
 
 -- DETALLE RECEPCION ARTICULO
-EXEC spAgregarDetalleRecepcionDeArticulos 1,1234444,1,50,2000
+-- CodRec,CodArt,Cantidad,PrecioComprado 
+EXEC spAgregarDetalleRecepcionDeArticulos 1,1,50,2000
+EXEC spAgregarDetalleRecepcionDeArticulos 2,2,20,550
+EXEC spAgregarDetalleRecepcionDeArticulos 3,3,5520,150
+EXEC spAgregarDetalleRecepcionDeArticulos 1,4,1029,250
+EXEC spAgregarDetalleRecepcionDeArticulos 2,5,421,2050
+EXEC spAgregarDetalleRecepcionDeArticulos 1,6,2878,850
+EXEC spAgregarDetalleRecepcionDeArticulos 3,7,1270,1356
+EXEC spAgregarDetalleRecepcionDeArticulos 1,8,240,1020
+EXEC spAgregarDetalleRecepcionDeArticulos 2,9,190,3030
+EXEC spAgregarDetalleRecepcionDeArticulos 1,10,100,1523
+EXEC spAgregarDetalleRecepcionDeArticulos 2,11,200,40
+EXEC spAgregarDetalleRecepcionDeArticulos 3,12,400,127
+
+-- Ingresos erroneos (validados)
+EXEC spAgregarDetalleRecepcionDeArticulos 3,1,50,2000
+EXEC spAgregarDetalleRecepcionDeArticulos 1,2,20,550
+EXEC spAgregarDetalleRecepcionDeArticulos 2,3,5520,150
+
 
 -- VENTAS
 EXEC spAgregarVenta 1234555,2,2

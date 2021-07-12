@@ -506,28 +506,24 @@ GO
 CREATE PROCEDURE spAgregarDetalleRecepcionDeArticulos
 (
 @codigo int,
-@cuitdeproveedor int,
 @codigodearticulo int,
 @cantidaddeunidades int,
 @preciounitario decimal (18,2)
 )
 AS
-INSERT INTO DetalleRecepcion_Articulos
-(
-DRECART_codigo,
-DRECART_prov_cuit,
-DRECART_articulo_cod,
-DRECART_cantidad_unidades,
-DRECART_precio_unitario
-)
-VALUES
-(
-@codigo ,
-@cuitdeproveedor ,
-@codigodearticulo ,
-@cantidaddeunidades ,
-@preciounitario 
-)
+	-- Se obtiene el cuit proveniente del producto ingresado, 1 producto solo puede ser dado por un único proveedor.
+	DECLARE @cuitdeproveedor int,@cuitrecepcion int
+	SELECT @cuitdeproveedor=AXP_prov_cuit from Articulos_por_Proveedor WHERE AXP_articulo_cod=@codigodearticulo
+	-- Se compara el cuit del proveedor para que este corresponda con el de la recepcion general.
+	SELECT @cuitrecepcion=RECART_prov_cuit from Recepcion_Articulos WHERE RECART_codigo=@codigo
+
+	-- Validacion
+	IF(@cuitrecepcion=@cuitdeproveedor)
+	BEGIN
+		INSERT INTO DetalleRecepcion_Articulos(DRECART_codigo,DRECART_prov_cuit,DRECART_articulo_cod,DRECART_cantidad_unidades,DRECART_precio_unitario)
+		VALUES(@codigo ,@cuitdeproveedor ,@codigodearticulo ,@cantidaddeunidades ,@preciounitario)
+	END
+	ELSE PRINT 'El artículo ingresado no pertenece al proveedor de cuit '+ CAST(@cuitrecepcion AS VARCHAR)+'.'
 GO
 
 CREATE PROCEDURE spAgregarArt_Prov
