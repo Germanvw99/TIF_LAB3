@@ -40,12 +40,14 @@ GO
 
 CREATE PROCEDURE spAgregarDetalleVenta
 @DTV_venta_codigo INT,
-@DTV_prov_cuit INT,
 @DTV_articulo_cod INT,
 @DTV_cantidad_unidades INT
 AS
-INSERT INTO DetalleVenta(DTV_venta_codigo,DTV_prov_cuit,DTV_articulo_cod,DTV_cantidad_unidades)
-SELECT @DTV_venta_codigo,@DTV_prov_cuit,@DTV_articulo_cod,@DTV_cantidad_unidades
+	-- Se obtiene el cuit proveniente del proveedor que despacha el producto ingresado, 1 producto solo puede ser dado por un único proveedor.
+	DECLARE @cuitdelproveedor int
+	SELECT @cuitdelproveedor=AXP_prov_cuit from Articulos_por_Proveedor WHERE AXP_articulo_cod=@DTV_articulo_cod
+	INSERT INTO DetalleVenta(DTV_venta_codigo,DTV_prov_cuit,DTV_articulo_cod,DTV_cantidad_unidades)
+	SELECT @DTV_venta_codigo,@cuitdelproveedor,@DTV_articulo_cod,@DTV_cantidad_unidades
 GO
 
 

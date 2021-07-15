@@ -181,14 +181,22 @@ EXEC spAgregarVenta 1234567,2,2
 EXEC spAgregarVenta 1234576,2,2
 
 -- DETALLE VENTA
-EXEC spAgregarDetalleVenta 1,1234444,4,10
-EXEC spAgregarDetalleVenta 1,1234444,2,5
-EXEC spAgregarDetalleVenta 1,1234444,1,2
-EXEC spAgregarDetalleVenta 1,1234444,3,2
+EXEC spAgregarDetalleVenta 1,4,10
+EXEC spAgregarDetalleVenta 1,2,5
+EXEC spAgregarDetalleVenta 1,1,8
+EXEC spAgregarDetalleVenta 1,3,2
+EXEC spAgregarDetalleVenta 1,9,3
 
-EXEC spAgregarDetalleVenta 2,3121139,6,9
-EXEC spAgregarDetalleVenta 2,3121139,9,2
-EXEC spAgregarDetalleVenta 2,3121139,1,3
+EXEC spAgregarDetalleVenta 2,6,9
+EXEC spAgregarDetalleVenta 2,9,2
+EXEC spAgregarDetalleVenta 2,1,4
 
-EXEC spAgregarDetalleVenta 3,3121234,5,2
-EXEC spAgregarDetalleVenta 3,3121234,7,4
+EXEC spAgregarDetalleVenta 3,5,10
+EXEC spAgregarDetalleVenta 3,7,4
+EXEC spAgregarDetalleVenta 3,12,5
+
+
+
+
+
+
