@@ -10,7 +10,8 @@ WHERE Articulos_por_Proveedor.AXP_stock_actual > 1000
 GO
 
 
--- o con un procedimiento almacenado 
+-- o con un procedimiento almacenado
+
 CREATE PROCEDURE ArticulosMayorStock
 @stock INT
 AS
