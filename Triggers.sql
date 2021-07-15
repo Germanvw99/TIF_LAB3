@@ -37,7 +37,7 @@ AS
 
 IF(@CantCompr<=@stock)
 
-	UPDATE Articulos_por_Proveedor SET AXP_stock_actual=@stock-@CantCompr,AXP_stock_anterior=@stock,AXP_salida=@CantCompr WHERE AXP_articulo_cod=@Cart
+	UPDATE Articulos_por_Proveedor SET AXP_stock_actual=@stock-@CantCompr,AXP_stock_anterior=@stock,AXP_salida+=@CantCompr WHERE AXP_articulo_cod=@Cart
 
 ELSE
 
@@ -83,7 +83,7 @@ AS
 		SELECT @Stock_ant=AXP_stock_anterior FROM Articulos_por_Proveedor WHERE AXP_articulo_cod=@CodArt
 
 		-- Actualiza el valor del stock al ingresar un artículo
-		UPDATE Articulos_por_Proveedor SET AXP_stock_actual+=@CantRecibida,AXP_stock_anterior=@Stock_ant,AXP_entrada=@CantRecibida WHERE AXP_articulo_cod=@CodArt
+		UPDATE Articulos_por_Proveedor SET AXP_stock_actual+=@CantRecibida,AXP_stock_anterior=@Stock_ant,AXP_entrada+=@CantRecibida WHERE AXP_articulo_cod=@CodArt
 
 		-- Actualiza el valor total del registro Recepcion_Artículo
 		UPDATE Recepcion_Articulos SET RECART_total_facturado+=@CantRecibida*@Precio WHERE RECART_codigo=@CodRecepcion
