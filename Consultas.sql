@@ -31,3 +31,30 @@ inner join Clientes
 on CLI_cuit=VEN_cli_cuit
 group by CLI_username
 
+
+
+-- DETALLE DE VENTA DE UNA FACTURA DADA
+SELECT SUM(DTV_precio_unitario * DTV_cantidad_unidades) AS 'Total Parcial',
+art_nombre 'Nombre Artículo',
+DTV_cantidad_unidades 'Unidades',
+DTV_precio_unitario 'Precio'
+FROM DetalleVenta
+INNER JOIN articulos on DTV_articulo_cod = ART_codigo
+WHERE DTV_venta_codigo = 2
+GROUP BY art_nombre,DTV_articulo_cod,DTV_cantidad_unidades,DTV_precio_unitario
+
+-- O CON UN PROCEDIMIENTO ALMACENADO
+CREATE PROCEDURE DetalleVentaPorFactura
+@CodFactura INT
+AS
+SELECT SUM(DTV_precio_unitario * DTV_cantidad_unidades) AS 'Total Parcial',
+art_nombre 'Nombre Artículo',
+DTV_cantidad_unidades 'Unidades',
+DTV_precio_unitario 'Precio'
+FROM DetalleVenta
+INNER JOIN articulos on DTV_articulo_cod = ART_codigo
+WHERE DTV_venta_codigo = @CodFactura
+GROUP BY art_nombre,DTV_articulo_cod,DTV_cantidad_unidades,DTV_precio_unitario
+GO
+
+EXEC DetalleVentaPorFactura 2
