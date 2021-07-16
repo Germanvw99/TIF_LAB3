@@ -25,7 +25,8 @@ EXEC ArticulosMayorStock 1000
 
 
 --MOSTRAR CANTIDAD DE VENTAS REALIZADAS POR CUIT DE CLIENTE
-select distinct VEN_cli_cuit AS Cuit_de_cliente,COUNT(*) AS Cantidad_de_ventas_asociadas from Ventas
-group by VEN_cli_cuit
-
+select distinct CLI_username AS Cliente ,COUNT(*) AS Cantidad_de_ventas_asociadas from Ventas
+inner join Clientes
+on CLI_cuit=VEN_cli_cuit
+group by CLI_username
 
