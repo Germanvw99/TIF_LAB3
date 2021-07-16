@@ -83,7 +83,7 @@ CREATE TABLE Personal(
 )
 GO
 
-/* TABLA PERSONAL */
+/* TABLA CLIENTES */
 CREATE TABLE Clientes(
 	CLI_cuit INT NOT NULL,
 	CLI_usu_id INT NOT NULL,
