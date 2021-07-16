@@ -65,9 +65,15 @@ GO
 EXEC DetalleVentaPorFactura 2
 
 
-
-select ART_nombre ,ART_descripcion from Articulos
+-- MOSTRAR ARTICULOS DADOS DE BAJA
+select ART_nombre as Nombre ,ART_descripcion as Descripcion from Articulos
 inner join Estados 
  on ART_estado_cod= EST_codigo
+ where EST_codigo = 1
+
+ -- MOSTRAR MARCAS DADAS DE BAJA
+select MAR_nombre  as Nombre ,MAR_descripcion as Descripcion from Marcas
+inner join Estados 
+ on MAR_estado_cod= EST_codigo
  where EST_codigo = 1
 
