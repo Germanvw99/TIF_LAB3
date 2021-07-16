@@ -40,8 +40,13 @@ DTV_cantidad_unidades 'Unidades',
 DTV_precio_unitario 'Precio'
 FROM DetalleVenta
 INNER JOIN articulos on DTV_articulo_cod = ART_codigo
-WHERE DTV_venta_codigo = 2
+WHERE DTV_venta_codigo = 12
 GROUP BY art_nombre,DTV_articulo_cod,DTV_cantidad_unidades,DTV_precio_unitario
+
+
+
+
+
 
 -- O CON UN PROCEDIMIENTO ALMACENADO
 CREATE PROCEDURE DetalleVentaPorFactura
@@ -58,3 +63,11 @@ GROUP BY art_nombre,DTV_articulo_cod,DTV_cantidad_unidades,DTV_precio_unitario
 GO
 
 EXEC DetalleVentaPorFactura 2
+
+
+
+select ART_nombre ,ART_descripcion from Articulos
+inner join Estados 
+ on ART_estado_cod= EST_codigo
+ where EST_codigo = 1
+
