@@ -1,5 +1,9 @@
 ﻿/* CREA DB */
 CREATE DATABASE Lab3TIF
+ON 
+( NAME = Lab3TIF_dat, 
+ FILENAME = 'C:\Trabajo Integrador Final\Lab3TIF.mdf' 
+) 
 GO
 
 USE Lab3TIF
