@@ -1,0 +1,60 @@
+body{
+
+
+}
+
+.sidebar{
+
+position: absolute;
+width: 250px;
+height: 100%;
+background: #333 ;
+color:  #fff;
+
+}
+
+.sidebar a{
+
+  display: block;
+  color:  #fff;
+  text-decoration: none;
+  padding: 10px;
+
+}
+
+.sidebar ul{
+
+list-style: none;
+padding: 0;
+
+
+}
+
+
+.sidebar h2{
+
+text-align: center;
+margin: 0;
+padding: 10px;
+background: #2a2a2a;
+
+}
+
+.sidebar li{
+
+
+outline: : 1px solid #2a2a2a;
+transition-property: border;
+transition-duration: 0.3s;
+
+
+
+}
+
+.sidebar li:hover{
+
+background: #444;
+border-left: 5px solid #eee;
+
+}
+
