@@ -5,11 +5,13 @@ body{
 
 .sidebar{
 
-position: absolute;
-width: 250px;
-height: 100%;
+
+width: 200px;
+height: 900px;
 background: #333 ;
 color:  #fff;
+float: left;
+display: inline;
 
 }
 
@@ -39,6 +41,11 @@ padding: 10px;
 background: #2a2a2a;
 
 }
+.sidebar h2:hover{
+background: #444;
+
+}
+
 
 .sidebar li{
 
@@ -58,3 +65,23 @@ border-left: 5px solid #eee;
 
 }
 
+.contenido{
+
+
+
+
+background: #eee;
+
+}
+
+.menu{
+
+  cursor: pointer;
+}
+
+
+
+.dive{
+
+  background: #2a2a2;
+}
