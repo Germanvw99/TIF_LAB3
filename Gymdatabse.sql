@@ -20,10 +20,10 @@ USU_Nacimiento varchar (25),
 USU_Sexo  varchar (25),
 USU_Correo varchar (25),
 USU_Estado int ,
-USU_FechaUltimoPago DATE ,
-USU_FechaAlta DATE ,
-USU_UrlImage varchar (25),
-USU_Perfil int
+USU_FechaUltimoPago varchar (25),
+USU_FechaAlta varchar (25),
+USU_UrlImage varchar (250),
+USU_Perfil int default 1
 
 CONSTRAINT PK_USUARIOS PRIMARY KEY (USU_Dni),
 CONSTRAINT FK_USUARIO_ESTADOS FOREIGN KEY (USU_Estado) references Estados(EST_Codigo)
@@ -41,8 +41,8 @@ PROF_Sexo  varchar (1),
 PROF_Correo varchar (25),
 PROF_Estado int ,
 PROF_FechaAlta DATE ,
-PROF_UrlImage varchar (25),
-USU_Perfil into
+PROF_UrlImage varchar (250),
+USU_Perfil int
 
 CONSTRAINT PK_PROFESORES PRIMARY KEY (PROF_Dni),
 constraint FK_PROFESORES_ESTADOS FOREIGN KEY (PROF_Estado) references Estados(EST_Codigo)
