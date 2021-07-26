@@ -1,5 +1,5 @@
 create database GYM
-
+drop table Usuarios
 use GYM
 
 create table Estados
@@ -37,12 +37,12 @@ PROF_Nombre varchar(25),
 PROF_Apellido varchar (25),
 PROF_Telefono varchar (25),
 PROF_Nacimiento varchar (25),
-PROF_Sexo  varchar (25),
+PROF_Sexo  varchar (1),
 PROF_Correo varchar (25),
 PROF_Estado int ,
 PROF_FechaAlta DATE ,
 PROF_UrlImage varchar (25),
-PROF_Perfil int
+USU_Perfil into
 
 CONSTRAINT PK_PROFESORES PRIMARY KEY (PROF_Dni),
 constraint FK_PROFESORES_ESTADOS FOREIGN KEY (PROF_Estado) references Estados(EST_Codigo)
