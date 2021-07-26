@@ -5,6 +5,7 @@ body{
  height: auto;
  margin: auto;
 
+
 }
 
 .sidebar{
@@ -13,10 +14,10 @@ body{
 width: 200px;
 height: 550px;
 background: #333 ;
-color:  #fff;
+color: black;
 float: left;
 display: inline;
-
+box-shadow: 10px 10px 10px 5px;
 }
 
 .sidebar a{
@@ -73,10 +74,11 @@ border-left: 5px solid #eee;
 .contenido{
  
 
-
+width: 950px;
 height: 130px;
 
-background: rgb(22, 22, 22);
+
+background: red;
 color: #eee;
 
 }
@@ -103,7 +105,11 @@ margin-left: 3px;
 .divheader1{
 position: absolute;
 height: 130px;
-width: 200px;
+width: 170px;
+padding-left: 30px;
+color: black;
+box-shadow: 10px 10px 10px 5px;
+
 
 background-color: rgb(114, 109, 109);
 
@@ -113,8 +119,10 @@ background-color: rgb(114, 109, 109);
   margin-left: 220px;
    position: absolute;
   background-color: rgb(99, 95, 95);
-  width: 1400px;
+  width: 900px;
   height: 130px;
+  color: black;
+  box-shadow: 10px 10px 10px 5px;
   
   outline: 1px solid #d6d4d4;
   
@@ -126,3 +134,48 @@ background-color: rgb(114, 109, 109);
     background-color: orangered;
   }
 
+.d{
+
+
+  box-shadow: ;
+}
+
+
+.textbox{
+
+  background-color: orangered;
+  margin-left: 100px;
+  margin-right: 100px;
+  margin-top: 60px;
+
+  
+
+}
+.cajadetexto li{
+
+  margin-left: 10px;
+  margin-right: 10px;
+  color: blueviolet;
+  background-color: lightblue;
+  padding-top: 120px;
+
+
+}
+
+.maine{
+
+margin-left: 220px;
+display: block ;
+background-color: gray;
+width: 750px;
+height: 750px;
+box-shadow: 30px 20px 10px 10px;
+
+
+}
+
+.cajadetexto{
+background-color: blue;
+
+  margin-top: 50px;
+}
