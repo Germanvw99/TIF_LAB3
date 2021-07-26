@@ -41,6 +41,8 @@ PROF_Sexo  varchar (1),
 PROF_Correo varchar (25),
 PROF_Estado int ,
 PROF_FechaAlta DATE ,
+PROF_UrlImage varchar (25),
+PROF_Perfil int
 
 CONSTRAINT PK_PROFESORES PRIMARY KEY (PROF_Dni),
 constraint FK_PROFESORES_ESTADOS FOREIGN KEY (PROF_Estado) references Estados(EST_Codigo)
