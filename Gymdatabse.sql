@@ -17,11 +17,13 @@ USU_Nombre varchar(25),
 USU_Apellido varchar (25),
 USU_Telefono varchar (25),
 USU_Nacimiento varchar (25),
-USU_Sexo  varchar (1),
+USU_Sexo  varchar (25),
 USU_Correo varchar (25),
 USU_Estado int ,
 USU_FechaUltimoPago DATE ,
 USU_FechaAlta DATE ,
+USU_UrlImage varchar (25),
+USU_Perfil int
 
 CONSTRAINT PK_USUARIOS PRIMARY KEY (USU_Dni),
 CONSTRAINT FK_USUARIO_ESTADOS FOREIGN KEY (USU_Estado) references Estados(EST_Codigo)
