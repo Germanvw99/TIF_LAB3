@@ -23,7 +23,8 @@ USU_Estado int ,
 USU_FechaUltimoPago varchar (25),
 USU_FechaAlta varchar (25),
 USU_UrlImage varchar (250),
-USU_Perfil int default 1
+USU_Perfil int default 1,
+USU_Password varchar(25),
 
 CONSTRAINT PK_USUARIOS PRIMARY KEY (USU_Dni),
 CONSTRAINT FK_USUARIO_ESTADOS FOREIGN KEY (USU_Estado) references Estados(EST_Codigo)
