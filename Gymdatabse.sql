@@ -49,3 +49,14 @@ CONSTRAINT PK_PROFESORES PRIMARY KEY (PROF_Dni),
 constraint FK_PROFESORES_ESTADOS FOREIGN KEY (PROF_Estado) references Estados(EST_Codigo)
 
 )
+
+
+create TABLE Turnos 
+(
+Tur_Dni varchar(25),
+Tur_Fecha_solicitada varchar(25) ,
+Tur_Fecha_de_solicitud varchar(25) ,
+Turn_Estado int,
+Turn_Profesor_confirma varchar(25),
+
+)
